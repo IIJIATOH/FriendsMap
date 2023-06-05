@@ -14,13 +14,16 @@ const router = createRouter({
       redirect: "/products"
     },
     {
+      path: "/priducts"
+    },
+    {
       path: "/friendForm",
       component: FriendInfo,
+      // Get confirm from user before leave form
       beforeLeave(to, from, next) {
         const answer = window.confirm(
           "Вы хотите уйти? У вас есть несохранённые изменения!"
         );
-        console.log("leave");
         if (answer) {
           next();
         } else {
@@ -49,7 +52,6 @@ const store = createStore({
         place: friend.place,
         contact: friend.contact
       });
-      console.log(state.friends);
     },
     changeFriendInfo(state, editFriend) {
       let friendIndx = state.friends.findIndex(
@@ -77,7 +79,6 @@ const store = createStore({
     },
     selectFriend(context, friend) {
       context.commit("selectFriend", friend);
-      console.log(router);
     },
     addFriend(context, friend) {
       context.commit("addFriend", friend);

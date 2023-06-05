@@ -16,17 +16,14 @@
     >PIPA</router-link
   >
   <router-view :friend="selectedFriend"></router-view>
-  <!-- <friend-info v-if="selectedFriend" :friend="selectedFriend"></friend-info> -->
 </template>
 
 <script>
 import AddFriend from "./components/AddFriend.vue";
-// import FriendInfo from "./components/FriendInfo.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
   components: {
     AddFriend
-    // FriendInfo
   },
   computed: {
     ...mapGetters({

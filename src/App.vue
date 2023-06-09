@@ -12,9 +12,6 @@
     v-if="$route.path === '/friendForm'"
     to="/"
   ></router-link>
-  <router-link v-if="$route.path === '/products'" to="/friendForm"
-    >PIPA</router-link
-  >
   <router-view :friend="selectedFriend"></router-view>
 </template>
 

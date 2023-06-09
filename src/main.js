@@ -39,8 +39,19 @@ const store = createStore({
     return {
       selectedFriend: undefined,
       friends: [
-        { key: 1, name: "boba", place: "Home", contact: "79128" },
-        { key: 2, name: "boobas", place: "Home2", contact: "79128231" }
+        {
+          key: 1,
+          name: "boba",
+          place: "Home",
+          contact: "79128"
+        },
+        {
+          key: 2,
+          name: "boobas",
+          place: "Home2",
+          contact: "79128231",
+          avatarUrl: null
+        }
       ]
     };
   },
@@ -50,7 +61,8 @@ const store = createStore({
         key: uuidv4(),
         name: friend.name,
         place: friend.place,
-        contact: friend.contact
+        contact: friend.contact,
+        avatarUrl: { avatarUrl: friend.avatarUrl, default: null }
       });
     },
     changeFriendInfo(state, editFriend) {
@@ -58,8 +70,6 @@ const store = createStore({
         (frd) => frd.key === editFriend.key
       );
       state.friends[friendIndx] = editFriend;
-      state.friends[friendIndx].contact = editFriend.contact;
-      state.friends[friendIndx].place = editFriend.place;
     },
     selectFriend(context, friend) {
       context.selectedFriend = friend;
